@@ -140,7 +140,7 @@ def draw_npc_page_1(c):
     y = RM2_HEIGHT - MARGIN
 
     # === HEADER ===
-    header_height = 35
+    header_height = 52
     draw_decorative_frame(c, MARGIN, y, content_width, header_height)
 
     c.setFont("Helvetica-Bold", 14)
@@ -158,6 +158,10 @@ def draw_npc_page_1(c):
     c.line(content_width - 30, y - 19, content_width + MARGIN - 10, y - 19)
     c.setDash([])
 
+    # Row 2: Faction and Current Location
+    draw_field_with_label(c, MARGIN + 10, y - 33, "Faction:", MARGIN + 58, MARGIN + col_width - 5)
+    draw_field_with_label(c, MARGIN + col_width + COL_GAP + 5, y - 33, "Current Location:", MARGIN + col_width + COL_GAP + 115, MARGIN + content_width - 5)
+
     y -= header_height + 15
 
     # === CORE IDENTITY SECTION ===
@@ -174,11 +178,6 @@ def draw_npc_page_1(c):
     draw_ruled_lines(c, right_x, y_col, col_width - 10, 5)
 
     y = y_col - 5 * SMALL_LINE_HEIGHT - 8
-
-    # Faction and Current Location side by side
-    draw_field_with_label(c, left_x, y, "Faction:", left_x + 50, MARGIN + col_width - 5)
-    draw_field_with_label(c, right_x, y, "Current Location:", right_x + 100, MARGIN + content_width - 5)
-    y -= 20
 
     # Other Details (formerly Notes)
     draw_col_label(c, left_x, y, "Other Details:")
